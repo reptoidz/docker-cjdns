@@ -1,11 +1,12 @@
-FROM debian:stable
-MAINTAINER mildred
+FROM fedora:21
+MAINTAINER reptoidz
 
 # Prepare
 RUN { \
   export DEBIAN_FRONTEND=noninteractive; \
-  apt-get update; \
-  apt-get install -y git build-essential curl python; \
+  yup update -y; \
+  apt-get install -y git nodejs wget; \
+  apt-get install -y @developement-tools; \
 }
 
 # Download
@@ -25,13 +26,6 @@ RUN { \
 RUN { \
   install -m755 -oroot -groot /usr/src/cjdns/cjdroute /usr/bin/cjdroute; \
   mkdir -p /etc/cjdns; \
-}
-
-# Clean
-RUN { \
-  apt-get remove -y build-essential curl; \
-  apt-get autoremove; \
-  apt-get clean; \
 }
 
 COPY entry.sh /entry.sh
