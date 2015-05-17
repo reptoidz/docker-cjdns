@@ -9,5 +9,5 @@ To be useful you'll have to run this in privileged mode, with the
 same network stack as the host. This can be acomplished using the
 docker options `--privileged --net=host`.
 
-    docker pull mildred/cjdns
-    docker run --privileged --net=host mildred/cjdns --volume /etc/cjdns:/etc/cjdns
+    docker pull reptoidz/fedora-cjdns
+    docker run --privileged --net=host reptoidz/fedora-cjdns --volume /etc/cjdns:/etc/cjdns
